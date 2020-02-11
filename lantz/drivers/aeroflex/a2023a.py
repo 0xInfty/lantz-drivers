@@ -14,7 +14,7 @@
     :license: BSD, see LICENSE for more details.
 """
 
-import enum
+from enum import Enum
 
 from lantz.core import Feat, Action, MessageBasedDriver
 from lantz.core.mfeats import BoolFeat, QuantityFeat, QuantityDictFeat, EnumFeat
@@ -46,7 +46,7 @@ class A2023a(MessageBasedDriver):
     phase = QuantityFeat(('CFRQ?', ':CFRQ:VALUE {:f}; INC {_};MODE {_}'), 'CFRQ:PHASE {}', units='degree')
 
     #: Get internal or external frequency standard.
-    class FREQUENCY_STANDARD(enum):
+    class FREQUENCY_STANDARD(Enum):
         INT = 'INT'
         EXT10DIR = 'EXT10DIR'
         EXTIND = 'EXTIND'
